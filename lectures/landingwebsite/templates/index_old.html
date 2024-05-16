@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+.css_input {
+color: yellow;
+background-color: red;
+}
+</style>
+
+{% if object_list %}
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Дата</td>
+        <td>Ім'я</td>
+        <td>Телефон</td>
+    </tr>
+{% for obj in object_list %}
+    <tr>
+        <td>{{ obj.id }}</td>
+        <td>{{ obj.order_dt }}</td>
+        <td>{{ obj.order_name }}</td>
+        <td>{{ obj.order_phone }}</td>
+{% endfor %}
+{% else %}
+        Даних немає
+{% endif%}
+</table>
+</body>
+<form action="{% url 'thanks_page' %}" method=«POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+<!--    <lable>Ім'я</lable>-->
+<!--    <input name="name">-->
+<!--    <label>Телефон</label>-->
+<!--    <input name="phone">-->
+    <button type="submit">Відправити</button>
+</form>
