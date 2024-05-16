@@ -1,0 +1,25 @@
+{% load static %}
+<!-- Таблиця -->
+  	<section>
+  		<div class="container">
+  			<h1 class="text-3">Prices for monthly subscription</h1>
+  			<table class="table table_one">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">Magazine</th>
+			      <th scope="col">Price</th>
+			      <th scope="col">There is a discount now!</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  {% for obj in price_table %}
+			  <tr>
+				  <td>{{ obj.pt_title }}</td>
+				  <td><del>{{ obj.pt_old_price }}</del></td>
+				  <td>{{ obj.pt_new_price }}</td>
+			  </tr>
+			  {% endfor %}
+			  </tbody>
+			</table>
+  		</div>
+  	</section>
